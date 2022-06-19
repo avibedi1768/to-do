@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>to-do</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEhTRgvXkLwNSkdpzmZwk7cwrf65C_3QmPTmfLI2_pOwJ9JsKFovp7jvX3lOoSIbhiMU&usqp=CAU">
+</head>
+<body>
+	<h1 style="background-color: rgb(92, 23, 23);color: rgb(181, 210, 236);text-align: center;padding-top: 15px;">TO-DO</h1>
+	<section>
+		<div id="take">
+			<label for="chore">Enter the chore </label><br>
+			<input type="text" id="chore" placeholder="Chore" required><br>
+			<label for="desc">Enter some description </label><br>
+			<textarea rows="4" id="desc" placeholder="Description" required></textarea>
+			<br>
+			<button onclick="compo()">Submit</button>
+		</div>
+	</section>
+
+	<section id="components"></section>
+
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script>
+	
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyDLy3u7BxPWMpAxJqPawtCCcf5Oxx5w_h4",
+		  authDomain: "todo-b2fc0.firebaseapp.com",
+		  projectId: "todo-b2fc0",
+		  storageBucket: "todo-b2fc0.appspot.com",
+		  messagingSenderId: "1034880743632",
+		  appId: "1:1034880743632:web:4d8b33d74274b19b1346d5",
+		  measurementId: "G-VGGGMTGSCH"
+		};
+
+		// Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+	  	  firebase.analytics();
+	</script>
+	
+	<script type="text/javascript">
+		function compo(){
+			var Desc = document.getElementById("desc").value;
+			var Chore = document.getElementById("chore").value;
+			if (Desc == "" || Chore == ""){
+				window.alert("Please enter some data for the todo");
+			}
+			else{
+			let div = document.createElement("div");
+			let head = document.createElement("h1");
+			head.innerHTML = Chore;
+			let hr = document.createElement("hr");
+			let para = document.createElement("p");
+			para.innerHTML = Desc;
+
+			div.append(head, hr, para);
+			document.getElementById("components").appendChild(div);
+			sendStuff()
+		}
+		}
+
+		
+		function sendStuff(){
+			var db = firebase.database();
+			
+			let username = document.getElementById("chore").value;
+			let chore = document.getElementById("chore").value;
+			let desc = document.getElementById("desc" ).value;
+			console.log(username);
+			
+			db.ref(username).set({
+				chore:chore,
+				desc:desc
+			})
+
+			db.ref(username).once("value",(value) =>{
+				console.log(value.val());
+			    
+			})
+		}
+	</script>
+</body>
+</html>

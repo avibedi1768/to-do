@@ -1,0 +1,76 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	display: grid;
+	place-items: centre;
+	min-height: 100vh;
+	background-image: linear-gradient(to bottom right,black, rgb(146, 96, 192));
+}
+
+section {
+	padding-top: 80px;
+	padding-bottom: 0;
+	padding-left: 60px;
+	padding-right: 60px;
+
+}
+
+#take {
+	margin: auto;
+	padding: 30px 50px;
+	border: 1px solid rgb(19, 20, 97);
+	width: 30%;
+	border-radius: 5px;
+
+	background-color: rgb(38, 8, 66);
+	color:aliceblue;
+}
+
+#take input {
+	text-indent: 10px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	width: 100%;
+	padding: 5px 0;
+}
+
+#take textarea {
+	width: calc(100% - 20px);
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#take button {
+	padding: 5px 25px;
+	margin-top: 20px;
+}
+
+#components {
+	display: flex;
+	gap: 50px 30px;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding-bottom: 30px;
+}
+
+#components div {
+	border: 1px solid rgb(19, 20, 97);
+	min-width: 30%;
+	border-radius: 5px;
+	background-color: rgb(38, 8, 66);
+	color:aliceblue;
+	padding: 20px;
+}
+
+#components h1 {
+	margin-bottom: 20px;
+}
+
+#components hr {
+	margin-bottom: 20px;
+	width: ;
+}
