@@ -16,7 +16,7 @@
 			<label for="desc">Enter some description </label><br>
 			<textarea rows="4" id="desc" placeholder="Description" required></textarea>
 			<br>
-			<button onclick="compo()">Submit</button>
+			<button onclick="sendStuff()">Submit</button>
 		</div>
 	</section>
 
@@ -45,45 +45,54 @@
 	</script>
 	
 	<script type="text/javascript">
-		function compo(){
-			var Desc = document.getElementById("desc").value;
-			var Chore = document.getElementById("chore").value;
+		if (window.localStorage.getItem('id') == undefined) {
+			window.localStorage.setItem('id', 0);
+		}
+
+		function compo(Desc, Chore){
 			if (Desc == "" || Chore == ""){
 				window.alert("Please enter some data for the todo");
 			}
 			else{
-			let div = document.createElement("div");
-			let head = document.createElement("h1");
-			head.innerHTML = Chore;
-			let hr = document.createElement("hr");
-			let para = document.createElement("p");
-			para.innerHTML = Desc;
+				let div = document.createElement("div");
+				let head = document.createElement("h1");
+				head.innerHTML = Chore;
+				let hr = document.createElement("hr");
+				let para = document.createElement("p");
+				para.innerHTML = Desc;
+				var btn = document.createElement("button");
+				btn.innerHTML = "Completed!";
 
-			div.append(head, hr, para);
-			document.getElementById("components").appendChild(div);
-			sendStuff()
+				div.append(head, hr, para, btn);
+				btn.addEventListener ("click", function() {
+					window.alert("button clicked");
+				});
+				document.getElementById("components").appendChild(div);
+			}
 		}
-		}
-
-		
 		function sendStuff(){
 			var db = firebase.database();
-			
-			let username = document.getElementById("chore").value;
 			let chore = document.getElementById("chore").value;
 			let desc = document.getElementById("desc" ).value;
-			console.log(username);
-			
-			db.ref(username).set({
-				chore:chore,
-				desc:desc
-			})
+			compo(desc,chore);
 
-			db.ref(username).once("value",(value) =>{
-				console.log(value.val());
-			    
+			var id = window.localStorage.getItem('id');
+			console.log(id);
+			db.ref("component " + id).set({
+				chore : chore,
+				desc : desc
 			})
+			db.ref("id/").set({
+				id: parseInt(id) + 1
+			})
+			window.localStorage.setItem('id',parseInt(id) + 1);
+			sendToLocal(chore, desc, id);
 		}
+		function sendToLocal(chore, desc, id) {
+			
+			window.localStorage.setItem("task" + id, chore);
+			window.localStorage.setItem("desc" + id, desc);
+		}	
 	</script>
 </body>
 </html>
