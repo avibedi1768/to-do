@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEhTRgvXkLwNSkdpzmZwk7cwrf65C_3QmPTmfLI2_pOwJ9JsKFovp7jvX3lOoSIbhiMU&usqp=CAU">
 </head>
-<body>
+<body onload="loadwala()">
 	<h1 style="background-color: rgb(92, 23, 23);color: rgb(181, 210, 236);text-align: center; display:flex;align-items: center;justify-content: center ;">TO-DO</h1>
 	<section>
 		<div id="take">
@@ -93,6 +93,16 @@
 			window.localStorage.setItem("task" + id, chore);
 			window.localStorage.setItem("desc" + id, desc);
 		}	
+		function loadwala(){
+			for(i=0; i<1000; i++){
+				if(window.localStorage.getItem("task" + i) == undefined){
+					break;
+				}
+				var Chore = window.localStorage.getItem("task" + i);
+				var Desc = window.localStorage.getItem("desc" + i);
+				compo(Desc, Chore);
+			}
+		}
 	</script>
 </body>
 </html>
