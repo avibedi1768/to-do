@@ -8,7 +8,7 @@
 	<link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoEhTRgvXkLwNSkdpzmZwk7cwrf65C_3QmPTmfLI2_pOwJ9JsKFovp7jvX3lOoSIbhiMU&usqp=CAU">
 </head>
 <body onload="loadwala()">
-	<h1 style="background-color: rgb(92, 23, 23);color: rgb(181, 210, 236);text-align: center; display:flex;align-items: center;justify-content: center ;">TO-DO</h1>
+	<h1 style="background-color: #6d597a; color: rgb(181, 210, 236);text-align: center; display:flex;align-items: center;justify-content: center ;">TO-DO</h1>
 	<section>
 		<div id="take">
 			<label for="chore">Enter the chore </label><br>
@@ -16,7 +16,7 @@
 			<label for="desc">Enter some description </label><br>
 			<textarea rows="4" id="desc" placeholder="Description" required></textarea>
 			<br>
-			<button onclick="sendStuff()">Submit</button>
+			<button onclick="sendStuff() ">Submit</button>
 		</div>
 	</section>
 
@@ -49,12 +49,13 @@
 			window.localStorage.setItem('id', 0);
 		}
 
-		function compo(Desc, Chore){
+		function compo(Desc, Chore, id){
 			if (Desc == "" || Chore == ""){
 				window.alert("Please enter some data for the todo");
 			}
 			else{
 				let div = document.createElement("div");
+				div.id = id;
 				let head = document.createElement("h1");
 				head.innerHTML = Chore;
 				let hr = document.createElement("hr");
@@ -64,9 +65,11 @@
 				btn.innerHTML = "Completed!";
 
 				div.append(head, hr, para, btn);
-				btn.addEventListener ("click", function() {
-					window.alert("button clicked");
-				});
+				btn.onclick = function() {
+					document.getElementById(id).style.display = "none";
+					window.localStorage.removeItem("task" + id);
+					window.localStorage.removeItem("desc" + id);
+				}
 				document.getElementById("components").appendChild(div);
 			}
 		}
@@ -74,19 +77,25 @@
 			var db = firebase.database();
 			let chore = document.getElementById("chore").value;
 			let desc = document.getElementById("desc" ).value;
-			compo(desc,chore);
 
-			var id = window.localStorage.getItem('id');
-			console.log(id);
-			db.ref("component " + id).set({
-				chore : chore,
-				desc : desc
-			})
-			db.ref("id/").set({
-				id: parseInt(id) + 1
-			})
-			window.localStorage.setItem('id',parseInt(id) + 1);
-			sendToLocal(chore, desc, id);
+			if (desc == "" || chore == ""){
+				window.alert("Please enter some data for the todo");
+			}
+			else{
+				var id = window.localStorage.getItem('id');
+				console.log(id);
+				db.ref("component " + id).set({
+					chore : chore,
+					desc : desc
+				})
+				
+				db.ref("id/").set({
+					id: parseInt(id) + 1
+				})
+				window.localStorage.setItem('id',parseInt(id) + 1);
+				sendToLocal(chore, desc, id);
+				compo(desc,chore,id);
+			}
 		}
 		function sendToLocal(chore, desc, id) {
 			
@@ -94,14 +103,14 @@
 			window.localStorage.setItem("desc" + id, desc);
 		}	
 		function loadwala(){
-			for(i=0; i<1000; i++){
-				if(window.localStorage.getItem("task" + i) == undefined){
-					break;
+			for(i=0; i<100; i++){
+				if(window.localStorage.getItem("desc" + i) == undefined){
+					continue;
 				}
-				var Chore = window.localStorage.getItem("task" + i);
-				var Desc = window.localStorage.getItem("desc" + i);
-				compo(Desc, Chore);
-			}
+					var Desc = window.localStorage.getItem("desc" + i);
+					var Chore = window.localStorage.getItem("task" + i);
+					compo(Desc, Chore, i);
+				}
 		}
 	</script>
 </body>

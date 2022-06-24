@@ -8,15 +8,11 @@ body {
 	display: grid;
 	place-items: centre;
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom right,black, rgb(146, 96, 192));
+	background-image: linear-gradient(to bottom right,black, #355070);
 }
 
 section {
-	padding-top: 80px;
-	padding-bottom: 0;
-	padding-left: 60px;
-	padding-right: 60px;
-
+	padding: 80px 60px 0 60px;
 }
 
 #take {
@@ -24,10 +20,12 @@ section {
 	padding: 30px 50px;
 	border: 1px solid rgb(19, 20, 97);
 	width: 30%;
-	border-radius: 5px;
-
-	background-color: rgb(38, 8, 66);
+	border-radius:15px 50px;
+	background-color: #b56576;
 	color:aliceblue;
+	box-shadow: 10px 10px 5px #6d597a;
+	font-size: 25px;
+
 }
 
 #take input {
@@ -36,53 +34,73 @@ section {
 	margin-top: 10px;
 	width: 100%;
 	padding: 5px 0;
+	font-size: 25px;
+	color: grey;
 }
 
 #take textarea {
 	width: calc(100% - 20px);
 	padding: 10px;
 	margin-top: 10px;
+	font-size: 25px;
+	color: grey;
+	
 }
 
 #take button {
 	padding: 5px 25px;
 	margin-top: 20px;
+	font-size: 25px;
+	background: #eaac8b;
+	border-radius: 12px;
+	border: none;
+	transition-duration: 0.4s;
+	
 }
-
+#take button:hover {
+	background-color: #6d597a;
+}
 #components {
 	display: flex;
 	gap: 50px 30px;
 	justify-content: space-around;
 	flex-wrap: wrap;
 	padding-bottom: 30px;
+
 }
 
 #components div {
 	border: 1px solid rgb(19, 20, 97);
 	min-width: 30%;
-	border-radius: 5px;
-	background-color: rgb(38, 8, 66);
+	border-radius: 50px 15px;
+	background-color: #6d597a;
 	color:aliceblue;
 	padding: 20px;
+	box-shadow: 10px 10px 5px #b56576;
+
 }
 
 #components h1 {
 	margin-bottom: 20px;
+	font-size: 30px;
+
 }
 
 #components hr {
 	margin-bottom: 20px;
-	width: ;
 }
-
+#components p {
+	font-size: 21px;
+}
 #components button {
-	margin-top: 20px;
-	line-height: 60px;
-	font-weight: bold;
-	padding: 0 40px;
-	background: salmon;
+	margin-top: 15px;
+	padding: 10px;
+	background: #eaac8b;
+	border-radius: 12px;
+	transition-duration: 0.4s;
+	font-size: 20px;
 	border: none;
 }
 #components button:hover {
-	background: lightsalmon;
+	background-color: #b56576;
 }
