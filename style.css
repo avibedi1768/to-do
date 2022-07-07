@@ -6,7 +6,6 @@ body{
 	background-image: url("https://us.123rf.com/450wm/peacestock123/peacestock1231811/peacestock123181100198/111621492-abstract-dark-brown-triangle-mosaic-background-creative-geometric-illustration-in-origami-style-with.jpg?ver=6");
 	background-size: cover;
 	font-family: 'Arima', cursive;
-
 }
 #heading{
 	text-align: center;
@@ -68,14 +67,11 @@ button{
 button:hover{
 	cursor: pointer;
 	background: rgba( 255, 255, 255, 0.7 );
-
 }
 button:focus{
 	background: rgba( 255, 255, 255, 0.7 );
-
 }
-#components{
-	
+#components{	
 	display: flex;
 	justify-content: center;
 	gap: 50px 50px;
@@ -105,4 +101,5 @@ button:focus{
 #components p{
 	font-weight: 300;
 	font-size: 22px;
+	word-wrap: break-word;
 }
