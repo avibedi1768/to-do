@@ -1,70 +1,51 @@
-var db = firebase.database();
-
-if (window.localStorage.getItem('id') == undefined) {
-	window.localStorage.setItem('id', 1);
+if(window.localStorage.getItem("id") == undefined){
+	window.localStorage.setItem("id", 1);
 }
-function sendStuff(){
-	let chore = document.getElementById("chore").value;
-	let desc = document.getElementById("desc" ).value;
-
-	if (desc == "" || chore == ""){
-		window.alert("Please enter some data for the todo");
-	}
-	else{
-		var id = window.localStorage.getItem('id');
-		console.log(id);
-		db.ref("component " + id).set({
-			chore : chore,
-			desc : desc
-		})
-		
-		db.ref("id").set({
-			id: parseInt(id) + 1
-		})
-		sendToLocal(chore, desc, id);
-		window.localStorage.setItem('id',parseInt(id) + 1);
-		document.getElementById("chore").value = "";
-		document.getElementById("desc").value = "";
-	}
-}
-function sendToLocal(chore, desc, id) {
-	window.localStorage.setItem("task" + id, chore);
-	window.localStorage.setItem("desc" + id, desc);
-	var Desc = window.localStorage.getItem("desc" + id);
-	var Chore = window.localStorage.getItem("task" + id);
-	compo(Desc, Chore, id);
-}	
-function loadwala(){
-	for(i=0; i<100; i++){
-		if(window.localStorage.getItem("desc" + i) == undefined){
+function loader(){
+	for(i=1; i<100; i++){
+		if(window.localStorage.getItem("task" + i) == undefined){
 			continue;
 		}
-			var Desc = window.localStorage.getItem("desc" + i);
-			var Chore = window.localStorage.getItem("task" + i);
-			compo(Desc, Chore, i);
-		}
+		var task = window.localStorage.getItem("task" + i);
+		var desc = window.localStorage.getItem("desc" + i);
+		compo(task, desc, i);
+	}
 }
-function compo(Desc, Chore, id){
-	if (Desc == "" || Chore == ""){
-		window.alert("Please enter some data for the todo");
+function send(){
+	var task = document.getElementById("task").value;
+	var desc = document.getElementById("desc").value;
+	if(task=="" || desc==""){
+		alert("Please enter some data");
 	}
 	else{
-		let div = document.createElement("div");
-		div.id = id;
-		let head = document.createElement("h1");
-		head.innerHTML = Chore;
-		let hr = document.createElement("hr");
-		let para = document.createElement("p");
-		para.innerHTML = Desc;
-		var btn = document.createElement("button");
-		btn.innerHTML = "Completed!";
+		var id = window.localStorage.getItem("id");
+		window.localStorage.setItem("task" + id, task);
+		window.localStorage.setItem("desc" + id, desc);
+		document.getElementById("task").value = "";
+		document.getElementById("desc").value = "";
 
-		div.append(head, hr, para, btn);
-		btn.onclick = function() {
-			document.getElementById(id).style.display = "none";
-			window.localStorage.removeItem("task" + id);
-			window.localStorage.removeItem("desc" + id);
-		}
-		document.getElementById("components").appendChild(div);
+		var Task = window.localStorage.getItem("task" + id);
+		var Desc = window.localStorage.getItem("desc" + id);
+		compo(Task, Desc, id);
+		id++;
+		window.localStorage.setItem("id", id);
 	}
+}
+function compo(task, desc, id) {
+	var div = document.createElement("div");
+	var h1 = document.createElement("h1");
+	var hr = document.createElement("hr");
+	var p = document.createElement("p");
+	var button = document.createElement("button");
+	div.id = id;
+	h1.innerHTML = task;
+	p.innerHTML = desc;
+	button.innerHTML = "Completed!";
+	button.onclick = function(){
+		document.getElementById(id).style.display = "none";
+		window.localStorage.removeItem("task" + id);
+		window.localStorage.removeItem("desc" + id);
+	}
+	div.append(h1, hr, p, button);
+	document.getElementById("components").appendChild(div);
 }

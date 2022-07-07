@@ -1,128 +1,108 @@
-* {
-	margin: 0;
+*{
 	padding: 0;
-	font-family: Arial, sans-serif;
+	margin: 0;
 }
-
-body {
-	display: grid;
-	place-items: centre;
-	min-height: 100vh;
-	background-image: linear-gradient(to bottom right,black, #355070);
+body{
+	background-image: url("https://us.123rf.com/450wm/peacestock123/peacestock1231811/peacestock123181100198/111621492-abstract-dark-brown-triangle-mosaic-background-creative-geometric-illustration-in-origami-style-with.jpg?ver=6");
 	background-size: cover;
-}
+	font-family: 'Arima', cursive;
 
-#todo{
-	background-color: #6d597a;
-	color: rgb(181, 210, 236);
+}
+#heading{
 	text-align: center;
-	display:flex;
-	margin: auto;
-	margin-top: 26px;
-	border: none;
-	padding: 9px;
-	border-radius: 5px;
-}
-section {
-	padding: 80px 60px 0 60px;
-}
-
-#take {
-	margin: auto;
-	padding: 30px 50px;
-	width: 300px;
-	border-radius:15px 50px;
-	background-color: #b56576;
-	color:aliceblue;
-	box-shadow: 10px 10px 5px #6d597a;
-	font-size: 29px;
-
-}
-
-#take input {
-	text-indent: 10px;
-	margin-bottom: 20px;
-	margin-top: 10px;
-	width: 85%;
-	padding: 5px 0;
-	font-size: 22px;
-	color: grey;
-	border: none;
-	border-radius: 6px;
-}
-#take input:focus{
-	outline: none;
-}
-#take textarea {
-	width: calc(85% - 20px);
+	font-family: 'Rubik Moonrocks', cursive;
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 32px 0 rgba( 1, 1, 1, 0.5 );
+	backdrop-filter: blur( 1px );
+	-webkit-backdrop-filter: blur( 1px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	width: 100px;
 	padding: 10px;
-	margin-top: 10px;
-	font-size: 22px;
-	color: grey;
-	border-radius: 6px;
-	border: none;
-
-	
+	margin: 24px auto;
 }
-#take textarea:focus{
-	outline: none;
-}
-#take button {
-	padding: 5px 10px;
-	margin-top: 20px;
-	width: 130px;
-	font-size: 24px;
-	background: #eaac8b;
-	border-radius: 12px;
-	border: none;
-	transition-duration: 0.4s;
+#take{
+	width: 350px;
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 32px 0 rgba( 1, 1, 1, 0.5 );
+	backdrop-filter: blur( 1px );
+	-webkit-backdrop-filter: blur( 1px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	padding: 19px;
+	margin: 60px auto;
+	font-weight: 500;
+	font-size: 26px;
 	color: white;
-	
 }
-#take button:hover {
-	background-color: #6d597a;
-}
-#components {
-	display: flex;
-	gap: 50px 30px;
-	justify-content: space-around;
-	flex-wrap: wrap;
-	padding-bottom: 30px;
-
-}
-
-#components div {
-	width: 250px;
-	border-radius: 50px 15px;
-	background-color: #6d597a;
-	color:aliceblue;
-	padding: 20px;
-	box-shadow: 10px 10px 5px #b56576;
-
-}
-
-#components h1 {
-	margin-bottom: 20px;
-	font-size: 24px;
-
-}
-
-#components hr {
-	margin-bottom: 20px;
-}
-#components p {
-	font-size: 18px;
-}
-#components button {
-	margin-top: 15px;
-	padding: 10px;
-	background: #eaac8b;
-	border-radius: 12px;
-	font-size: 17px;
+#take input, textarea{
+	width: 85%;
+	color: grey;
+	font-weight: 300;
+	font-size: 20px;
+	margin-bottom: 26px;
+	padding: 9px;
+	border-radius: 8px;
 	border: none;
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 8px 0 rgba( 1, 1, 1, 0.3 );
+	backdrop-filter: blur( 1px );
+	-webkit-backdrop-filter: blur( 1px );
+}
+#take input:focus, textarea:focus{
+	outline: none;
+}
+button{
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 8px 0 rgba( 1, 1, 1, 0.3 );
+	backdrop-filter: blur( 1px );
+	-webkit-backdrop-filter: blur( 1px );
+	border-radius: 9px;
+	border: 1px solid rgba( 1, 1, 1, 0.5 );
+	padding: 4px;
+	font-weight: 500;
+	font-size: 20px;
 	transition-duration: 0.4s;
+	margin: 8px 0;
+}
+button:hover{
+	cursor: pointer;
+	background: rgba( 255, 255, 255, 0.7 );
 
 }
-#components button:hover {
-	background-color: #b56576;
+button:focus{
+	background: rgba( 255, 255, 255, 0.7 );
+
+}
+#components{
+	
+	display: flex;
+	justify-content: center;
+	gap: 50px 50px;
+	flex-wrap: wrap;
+	margin-bottom: 60px;
+}
+#components div{
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 32px 0 rgba( 1, 1, 1, 0.5 );
+	backdrop-filter: blur( 1px );
+	-webkit-backdrop-filter: blur( 1px );
+	border-radius: 10px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	padding: 19px;
+	width: 250px;
+	color: white;
+	margin: 50px 80px 0 0;
+}
+#components h1{
+	font-weight: 500;
+	font-size: 26px;
+	word-wrap: break-word;
+}
+#components hr{
+	margin: 8px 0;
+}
+#components p{
+	font-weight: 300;
+	font-size: 22px;
 }
