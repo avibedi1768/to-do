@@ -9,10 +9,19 @@ body {
 	place-items: centre;
 	min-height: 100vh;
 	background-image: linear-gradient(to bottom right,black, #355070);
+	background-size: cover;
 }
 
 #todo{
-	background-color: #6d597a; color: rgb(181, 210, 236);text-align: center; display:flex;align-items: center;justify-content: center ;
+	background-color: #6d597a;
+	color: rgb(181, 210, 236);
+	text-align: center;
+	display:flex;
+	margin: auto;
+	margin-top: 26px;
+	border: none;
+	padding: 9px;
+	border-radius: 5px;
 }
 section {
 	padding: 80px 60px 0 60px;
@@ -21,13 +30,12 @@ section {
 #take {
 	margin: auto;
 	padding: 30px 50px;
-	border: 1px solid rgb(19, 20, 97);
-	width: 27%;
+	width: 300px;
 	border-radius:15px 50px;
 	background-color: #b56576;
 	color:aliceblue;
 	box-shadow: 10px 10px 5px #6d597a;
-	font-size: 3vh;
+	font-size: 29px;
 
 }
 
@@ -37,23 +45,33 @@ section {
 	margin-top: 10px;
 	width: 85%;
 	padding: 5px 0;
-	font-size: 2vh;
+	font-size: 22px;
 	color: grey;
+	border: none;
+	border-radius: 6px;
 }
-
+#take input:focus{
+	outline: none;
+}
 #take textarea {
 	width: calc(85% - 20px);
 	padding: 10px;
 	margin-top: 10px;
-	font-size: 2vh;
+	font-size: 22px;
 	color: grey;
+	border-radius: 6px;
+	border: none;
+
 	
 }
-
+#take textarea:focus{
+	outline: none;
+}
 #take button {
-	padding: 5px 25px;
+	padding: 5px 10px;
 	margin-top: 20px;
-	font-size: 3vh;
+	width: 130px;
+	font-size: 24px;
 	background: #eaac8b;
 	border-radius: 12px;
 	border: none;
@@ -74,8 +92,7 @@ section {
 }
 
 #components div {
-	border: 1px solid rgb(19, 20, 97);
-	min-width: 30%;
+	width: 250px;
 	border-radius: 50px 15px;
 	background-color: #6d597a;
 	color:aliceblue;
@@ -86,7 +103,7 @@ section {
 
 #components h1 {
 	margin-bottom: 20px;
-	font-size: 30px;
+	font-size: 24px;
 
 }
 
@@ -94,16 +111,17 @@ section {
 	margin-bottom: 20px;
 }
 #components p {
-	font-size: 21px;
+	font-size: 18px;
 }
 #components button {
 	margin-top: 15px;
 	padding: 10px;
 	background: #eaac8b;
 	border-radius: 12px;
-	transition-duration: 0.4s;
-	font-size: 20px;
+	font-size: 17px;
 	border: none;
+	transition-duration: 0.4s;
+
 }
 #components button:hover {
 	background-color: #b56576;
