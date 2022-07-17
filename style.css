@@ -3,7 +3,7 @@
 	margin: 0;
 }
 body{
-	background-image: url("https://us.123rf.com/450wm/peacestock123/peacestock1231811/peacestock123181100198/111621492-abstract-dark-brown-triangle-mosaic-background-creative-geometric-illustration-in-origami-style-with.jpg?ver=6");
+	background-image: url("https://data.whicdn.com/images/319367270/original.gif");
 	background-size: cover;
 	font-family: 'Arima', cursive;
 }
@@ -24,20 +24,20 @@ body{
 	width: 350px;
 	background: rgba( 255, 255, 255, 0.3 );
 	box-shadow: 0 8px 32px 0 rgba( 1, 1, 1, 0.5 );
-	backdrop-filter: blur( 1px );
+	backdrop-filter: blur( 5px );
 	-webkit-backdrop-filter: blur( 1px );
 	border-radius: 10px;
 	border: 1px solid rgba( 255, 255, 255, 0.18 );
 	padding: 19px;
 	margin: 60px auto;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 26px;
-	color: white;
+	color: rgb(190, 58, 25);
 }
 #take input, textarea{
 	width: 85%;
-	color: grey;
-	font-weight: 300;
+	color: rgb(0, 0, 0);
+	font-weight: 500;
 	font-size: 20px;
 	margin-bottom: 26px;
 	padding: 9px;
@@ -79,19 +79,20 @@ button:focus{
 	margin-bottom: 60px;
 }
 #components div{
-	background: rgba( 255, 255, 255, 0.3 );
+	background: rgba( 255, 255, 255, 0.3);
 	box-shadow: 0 8px 32px 0 rgba( 1, 1, 1, 0.5 );
-	backdrop-filter: blur( 1px );
-	-webkit-backdrop-filter: blur( 1px );
+	backdrop-filter: blur( 7px );
+	-webkit-backdrop-filter: blur( 4px );
 	border-radius: 10px;
 	border: 1px solid rgba( 255, 255, 255, 0.18 );
 	padding: 19px;
 	width: 250px;
-	color: white;
+	color: rgb(90, 22, 158);
 	margin: 50px 80px 0 0;
 }
 #components h1{
-	font-weight: 500;
+	font-weight: 600;
+	
 	font-size: 26px;
 	word-wrap: break-word;
 }
@@ -99,7 +100,7 @@ button:focus{
 	margin: 8px 0;
 }
 #components p{
-	font-weight: 300;
+	font-weight: 500;
 	font-size: 22px;
 	word-wrap: break-word;
 }
